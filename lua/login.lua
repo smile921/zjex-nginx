@@ -1,4 +1,4 @@
-  local json.util = require("json.util")
+  local json = require("json_util")
 
   local request_method = ngx.var.request_method;
   local args=nil;   
@@ -11,4 +11,4 @@
   end 
 
   args.method = request_method;
-  ngx.say( json.util.encode( args ))
+  ngx.say( json.encode( args ))

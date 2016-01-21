@@ -171,3 +171,34 @@ coroutine 0:
 2016/01/21 14:35:40 [notice] 28243#0: getrlimit(RLIMIT_NOFILE): 1024:4096
 2016/01/21 14:35:40 [notice] 28244#0: start worker processes
 2016/01/21 14:35:40 [notice] 28244#0: start worker process 28245
+2016/01/21 15:43:47 [emerg] 29075#0: bind() to 0.0.0.0:9988 failed (98: Address already in use)
+2016/01/21 15:43:47 [notice] 29075#0: try again to bind() after 500ms
+2016/01/21 15:43:47 [emerg] 29075#0: bind() to 0.0.0.0:9988 failed (98: Address already in use)
+2016/01/21 15:43:47 [notice] 29075#0: try again to bind() after 500ms
+2016/01/21 15:43:47 [emerg] 29075#0: bind() to 0.0.0.0:9988 failed (98: Address already in use)
+2016/01/21 15:43:47 [notice] 29075#0: try again to bind() after 500ms
+2016/01/21 15:43:47 [emerg] 29075#0: bind() to 0.0.0.0:9988 failed (98: Address already in use)
+2016/01/21 15:43:47 [notice] 29075#0: try again to bind() after 500ms
+2016/01/21 15:43:47 [emerg] 29075#0: bind() to 0.0.0.0:9988 failed (98: Address already in use)
+2016/01/21 15:43:47 [notice] 29075#0: try again to bind() after 500ms
+2016/01/21 15:43:47 [emerg] 29075#0: still could not bind()
+2016/01/21 15:43:51 [emerg] 29082#0: bind() to 0.0.0.0:9988 failed (98: Address already in use)
+2016/01/21 15:43:51 [notice] 29082#0: try again to bind() after 500ms
+2016/01/21 15:43:51 [emerg] 29082#0: bind() to 0.0.0.0:9988 failed (98: Address already in use)
+2016/01/21 15:43:51 [notice] 29082#0: try again to bind() after 500ms
+2016/01/21 15:43:51 [emerg] 29082#0: bind() to 0.0.0.0:9988 failed (98: Address already in use)
+2016/01/21 15:43:51 [notice] 29082#0: try again to bind() after 500ms
+2016/01/21 15:43:51 [emerg] 29082#0: bind() to 0.0.0.0:9988 failed (98: Address already in use)
+2016/01/21 15:43:51 [notice] 29082#0: try again to bind() after 500ms
+2016/01/21 15:43:51 [emerg] 29082#0: bind() to 0.0.0.0:9988 failed (98: Address already in use)
+2016/01/21 15:43:51 [notice] 29082#0: try again to bind() after 500ms
+2016/01/21 15:43:51 [emerg] 29082#0: still could not bind()
+2016/01/21 15:44:34 [notice] 29101#0: using the "epoll" event method
+2016/01/21 15:44:34 [notice] 29101#0: openresty/1.7.10.2
+2016/01/21 15:44:34 [notice] 29101#0: built by gcc 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+2016/01/21 15:44:34 [notice] 29101#0: OS: Linux 2.6.32-431.el6.x86_64
+2016/01/21 15:44:34 [notice] 29101#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/01/21 15:44:34 [notice] 29102#0: start worker processes
+2016/01/21 15:44:34 [notice] 29102#0: start worker process 29103
+2016/01/21 15:44:48 [error] 29103#0: *1 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/login.lua": /home/ngx_lua/zjex-nginx/lua/login.lua:1: unexpected symbol near '.', client: 10.88.1.13, server: localhost, request: "GET /login?username=ads&password=ss HTTP/1.1", host: "10.88.1.215:9988", referrer: "http://10.88.1.215:9988/index.html"
+2016/01/21 15:44:48 [error] 29103#0: *1 open() "/home/ngx_lua/zjex-nginx/root/50x.html" failed (2: No such file or directory), client: 10.88.1.13, server: localhost, request: "GET /login?username=ads&password=ss HTTP/1.1", host: "10.88.1.215:9988", referrer: "http://10.88.1.215:9988/index.html"
