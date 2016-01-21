@@ -5,3 +5,15 @@
 2016/01/21 10:29:15 [alert] 25243#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:34
 2016/01/21 10:29:15 [notice] 25243#0: signal process started
 2016/01/21 10:29:15 [alert] 25244#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:34
+2016/01/21 13:54:36 [alert] 27711#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 13:54:36 [notice] 27711#0: signal process started
+2016/01/21 13:54:37 [alert] 27712#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 13:56:01 [alert] 27739#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 13:56:01 [notice] 27739#0: signal process started
+2016/01/21 13:56:02 [alert] 27740#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:03:24 [alert] 27837#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:03:24 [notice] 27837#0: signal process started
+2016/01/21 14:03:24 [alert] 27838#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:12:08 [alert] 27940#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:12:08 [notice] 27940#0: signal process started
+2016/01/21 14:12:08 [alert] 27941#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35

@@ -1,0 +1,6 @@
+10.88.1.13 - - [21/Jan/2016:13:54:50 +0800] "GET / HTTP/1.1" 404 191 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36"
+10.88.1.13 - - [21/Jan/2016:13:54:51 +0800] "GET /favicon.ico HTTP/1.1" 404 191 "http://10.88.1.215:9988/" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36"
+10.88.1.13 - - [21/Jan/2016:13:55:01 +0800] "GET /lua_redis HTTP/1.1" 404 191 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36"
+10.88.1.13 - - [21/Jan/2016:13:55:43 +0800] "GET /lua_redis HTTP/1.1" 404 191 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36"
+10.88.1.13 - - [21/Jan/2016:14:03:29 +0800] "GET /lua_redis HTTP/1.1" 200 251 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36"
+10.88.1.13 - - [21/Jan/2016:14:12:11 +0800] "GET /lua_redis HTTP/1.1" 200 251 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36"
