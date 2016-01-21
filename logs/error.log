@@ -17,3 +17,16 @@
 2016/01/21 14:12:08 [alert] 27940#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
 2016/01/21 14:12:08 [notice] 27940#0: signal process started
 2016/01/21 14:12:08 [alert] 27941#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:21:59 [alert] 28070#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:21:59 [notice] 28070#0: signal process started
+2016/01/21 14:21:59 [alert] 28071#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:27:15 [alert] 28139#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:27:15 [emerg] 28139#0: unknown directive "index.html" in /home/ngx_lua/zjex-nginx/conf/nginx.conf:69
+2016/01/21 14:27:15 [alert] 28140#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:27:15 [emerg] 28140#0: unknown directive "index.html" in /home/ngx_lua/zjex-nginx/conf/nginx.conf:69
+2016/01/21 14:30:12 [alert] 28179#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:30:12 [notice] 28179#0: signal process started
+2016/01/21 14:30:12 [alert] 28180#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:35:40 [alert] 28242#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35
+2016/01/21 14:35:40 [notice] 28242#0: signal process started
+2016/01/21 14:35:40 [alert] 28243#0: lua_code_cache is off; this will hurt performance in /home/ngx_lua/zjex-nginx/conf/nginx.conf:35

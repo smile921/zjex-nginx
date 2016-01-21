@@ -122,3 +122,52 @@ coroutine 0:
 2016/01/21 14:12:08 [notice] 27941#0: getrlimit(RLIMIT_NOFILE): 1024:4096
 2016/01/21 14:12:08 [notice] 27942#0: start worker processes
 2016/01/21 14:12:08 [notice] 27942#0: start worker process 27943
+2016/01/21 14:21:59 [notice] 27942#0: signal 15 (SIGTERM) received, exiting
+2016/01/21 14:21:59 [notice] 27943#0: exiting
+2016/01/21 14:21:59 [notice] 27943#0: exit
+2016/01/21 14:21:59 [notice] 27942#0: signal 17 (SIGCHLD) received
+2016/01/21 14:21:59 [notice] 27942#0: worker process 27943 exited with code 0
+2016/01/21 14:21:59 [notice] 27942#0: exit
+2016/01/21 14:21:59 [notice] 28071#0: using the "epoll" event method
+2016/01/21 14:21:59 [notice] 28071#0: openresty/1.7.10.2
+2016/01/21 14:21:59 [notice] 28071#0: built by gcc 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+2016/01/21 14:21:59 [notice] 28071#0: OS: Linux 2.6.32-431.el6.x86_64
+2016/01/21 14:21:59 [notice] 28071#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/01/21 14:21:59 [notice] 28072#0: start worker processes
+2016/01/21 14:21:59 [notice] 28072#0: start worker process 28073
+2016/01/21 14:22:11 [error] 28073#0: *1 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/control_page_login.lua": cannot open /home/ngx_lua/zjex-nginx/lua/control_page_login.lua: No such file or directory, client: 10.88.1.13, server: localhost, request: "GET / HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/21 14:22:11 [error] 28073#0: *1 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/control_page_login.lua": cannot open /home/ngx_lua/zjex-nginx/lua/control_page_login.lua: No such file or directory, client: 10.88.1.13, server: localhost, request: "GET / HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/21 14:22:19 [error] 28073#0: *1 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/control_page_login.lua": cannot open /home/ngx_lua/zjex-nginx/lua/control_page_login.lua: No such file or directory, client: 10.88.1.13, server: localhost, request: "GET /index.html HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/21 14:22:19 [error] 28073#0: *1 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/control_page_login.lua": cannot open /home/ngx_lua/zjex-nginx/lua/control_page_login.lua: No such file or directory, client: 10.88.1.13, server: localhost, request: "GET /index.html HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/21 14:27:27 [error] 28073#0: *3 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/control_page_login.lua": cannot open /home/ngx_lua/zjex-nginx/lua/control_page_login.lua: No such file or directory, client: 10.88.1.13, server: localhost, request: "GET /index.html HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/21 14:27:27 [error] 28073#0: *3 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/control_page_login.lua": cannot open /home/ngx_lua/zjex-nginx/lua/control_page_login.lua: No such file or directory, client: 10.88.1.13, server: localhost, request: "GET /index.html HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/21 14:27:29 [error] 28073#0: *3 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/control_page_login.lua": cannot open /home/ngx_lua/zjex-nginx/lua/control_page_login.lua: No such file or directory, client: 10.88.1.13, server: localhost, request: "GET /index.html HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/21 14:27:29 [error] 28073#0: *3 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/control_page_login.lua": cannot open /home/ngx_lua/zjex-nginx/lua/control_page_login.lua: No such file or directory, client: 10.88.1.13, server: localhost, request: "GET /index.html HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/21 14:30:12 [notice] 28072#0: signal 15 (SIGTERM) received, exiting
+2016/01/21 14:30:12 [notice] 28073#0: exiting
+2016/01/21 14:30:12 [notice] 28073#0: exit
+2016/01/21 14:30:12 [notice] 28072#0: signal 17 (SIGCHLD) received
+2016/01/21 14:30:12 [notice] 28072#0: worker process 28073 exited with code 0
+2016/01/21 14:30:12 [notice] 28072#0: exit
+2016/01/21 14:30:12 [notice] 28180#0: using the "epoll" event method
+2016/01/21 14:30:12 [notice] 28180#0: openresty/1.7.10.2
+2016/01/21 14:30:12 [notice] 28180#0: built by gcc 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+2016/01/21 14:30:12 [notice] 28180#0: OS: Linux 2.6.32-431.el6.x86_64
+2016/01/21 14:30:12 [notice] 28180#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/01/21 14:30:12 [notice] 28181#0: start worker processes
+2016/01/21 14:30:12 [notice] 28181#0: start worker process 28182
+2016/01/21 14:30:19 [error] 28182#0: *1 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/control_page_login.lua": cannot open /home/ngx_lua/zjex-nginx/lua/control_page_login.lua: No such file or directory, client: 10.88.1.13, server: localhost, request: "GET /index.html HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/21 14:30:19 [error] 28182#0: *1 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/control_page_login.lua": cannot open /home/ngx_lua/zjex-nginx/lua/control_page_login.lua: No such file or directory, client: 10.88.1.13, server: localhost, request: "GET /index.html HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/21 14:35:40 [notice] 28181#0: signal 15 (SIGTERM) received, exiting
+2016/01/21 14:35:40 [notice] 28182#0: exiting
+2016/01/21 14:35:40 [notice] 28182#0: exit
+2016/01/21 14:35:40 [notice] 28181#0: signal 17 (SIGCHLD) received
+2016/01/21 14:35:40 [notice] 28181#0: worker process 28182 exited with code 0
+2016/01/21 14:35:40 [notice] 28181#0: exit
+2016/01/21 14:35:40 [notice] 28243#0: using the "epoll" event method
+2016/01/21 14:35:40 [notice] 28243#0: openresty/1.7.10.2
+2016/01/21 14:35:40 [notice] 28243#0: built by gcc 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+2016/01/21 14:35:40 [notice] 28243#0: OS: Linux 2.6.32-431.el6.x86_64
+2016/01/21 14:35:40 [notice] 28243#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/01/21 14:35:40 [notice] 28244#0: start worker processes
+2016/01/21 14:35:40 [notice] 28244#0: start worker process 28245
