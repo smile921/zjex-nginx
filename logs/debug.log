@@ -1,0 +1,20 @@
+2016/01/21 10:28:54 [notice] 25235#0: using the "epoll" event method
+2016/01/21 10:28:54 [notice] 25235#0: openresty/1.7.10.2
+2016/01/21 10:28:54 [notice] 25235#0: built by gcc 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+2016/01/21 10:28:54 [notice] 25235#0: OS: Linux 2.6.32-431.el6.x86_64
+2016/01/21 10:28:54 [notice] 25235#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/01/21 10:28:54 [notice] 25236#0: start worker processes
+2016/01/21 10:28:54 [notice] 25236#0: start worker process 25237
+2016/01/21 10:29:15 [notice] 25236#0: signal 15 (SIGTERM) received, exiting
+2016/01/21 10:29:15 [notice] 25237#0: exiting
+2016/01/21 10:29:15 [notice] 25237#0: exit
+2016/01/21 10:29:15 [notice] 25236#0: signal 17 (SIGCHLD) received
+2016/01/21 10:29:15 [notice] 25236#0: worker process 25237 exited with code 0
+2016/01/21 10:29:15 [notice] 25236#0: exit
+2016/01/21 10:29:15 [notice] 25244#0: using the "epoll" event method
+2016/01/21 10:29:15 [notice] 25244#0: openresty/1.7.10.2
+2016/01/21 10:29:15 [notice] 25244#0: built by gcc 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+2016/01/21 10:29:15 [notice] 25244#0: OS: Linux 2.6.32-431.el6.x86_64
+2016/01/21 10:29:15 [notice] 25244#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/01/21 10:29:15 [notice] 25245#0: start worker processes
+2016/01/21 10:29:15 [notice] 25245#0: start worker process 25246
