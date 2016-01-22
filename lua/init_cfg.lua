@@ -23,14 +23,12 @@ cfg.grant_type = "authorization_code"
 cfg.grant_type_password = "password"
 
 
-
-cfg.redis_ip = "10.88.1.214"
-cfg.redis_port = "7030"
-cfg.expire_timeout_second = 600  -- 1 = 1 sec   600 = 10分钟 redis中数据有效时间
-
-
-
-
+cfg.redis_config ={
+	host = "10.88.1.214",
+	port = 7030,
+	timeout = 10000,
+	poolsize = 10000
+} ;
 cfg.session_cookie_name = "k_d_0_618_n_l_j_g_s_s"
 cfg.getSessionIdFromCookie=function()
   --	return ngx.var.cookie__encrypt_sign
@@ -38,25 +36,7 @@ cfg.getSessionIdFromCookie=function()
 end
 --ngx.var.cookie_xxxx 跟 cfg.session_cookie_name = "xxxx" 保持一致
 
-
-
---[[
-    页面是否需要登录的规则:
-    1.访问的uri中包含/auth/
-    2.cfg.page_need_login_list中指定的uri
-]]--
-cfg.page_need_login_list = ","
-
-cfg.page_need_login_list = cfg.page_need_login_list .. "/account.html,"
-cfg.page_need_login_list = cfg.page_need_login_list .. "/person/project_apply.html,"
-cfg.page_need_login_list = cfg.page_need_login_list .. "/person/project_expand.html,"
-cfg.page_need_login_list = cfg.page_need_login_list .. "/person/project_relevance.html,"
-cfg.page_need_login_list = cfg.page_need_login_list .. "/subscribe_claims.html,"
-cfg.page_need_login_list = cfg.page_need_login_list .. "/subscribe_claims_payment.html,"
-cfg.page_need_login_list = cfg.page_need_login_list .. "/subscribe_turn.html,"
-cfg.page_need_login_list = cfg.page_need_login_list .. "/subscribe_turn_payment.html,"
-cfg.page_need_login_list = cfg.page_need_login_list .. "/subscribe.html,"
-
+ 
 --**************************************************************
 
 
