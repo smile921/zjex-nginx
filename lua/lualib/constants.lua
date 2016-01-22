@@ -55,5 +55,11 @@ return {
       TOKEN_URL = "^%s/oauth/token/?$", 
      
       AUTHORIZATION_CODE_URL = "code"  -- response_type=code /authrize
-  } 
+  },
+  LOG_LEVEL = {
+  INFO = ngx.INFO ,
+  ERR = ngx.ERR,
+  DEBUG = ngx.DEBUG,
+  WARN = ngx.WARN
+} 
 }

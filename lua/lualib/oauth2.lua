@@ -70,6 +70,7 @@ local function get_token_by_type(conf,gtant_type)
    --  /gateway_token  /oauth/token
    local auth2_nginx_url = "/gateway_token" .. suffix;
    local response = ngx.location.capture(auth2_nginx_url);
+   ngx.log(ngx.INFO,auth2_nginx_url)
    return  parseTokenResponse(response);
 end
 
