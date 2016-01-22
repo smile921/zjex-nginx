@@ -4,6 +4,27 @@ local json_parser = require "json_parser"
 
 local _M = {}
 
+local function parseTokenResponse( response )
+   -- extract token from response
+   local authObj = nil;
+   local err = nil;
+   local return_type  = 0;
+   if response and response.status == 200 then
+      local zjexJson = response.body;
+      authObj = json_parser.decode( zjexJson)
+      access_token  = authObj.access_token
+      if access_token then
+        return_type = 1;
+      else
+        return_type= -1;
+      end
+      refresh_token = authObj.refresh_token
+      if refresh_token then
+         return_type = 2;
+      end
+      return authObj,err,return_type;
+   end
+end 
 -- local CONTENT_LENGTH = "content-length"
 -- local RESPONSE_TYPE = "response_type"
 -- local STATE = "state"
@@ -74,27 +95,7 @@ local function get_token_by_type(conf,gtant_type)
    return  parseTokenResponse(response);
 end
 
-local function parseTokenResponse( response )
-   -- extract token from response
-   local authObj = nil;
-   local err = nil;
-   local return_type  = 0;
-   if response and response.status == 200 then
-      local zjexJson = response.body;
-      authObj = json_parser.decode( zjexJson)
-      access_token  = authObj.access_token
-      if access_token then
-        return_type = 1;
-      else
-        return_type= -1;
-      end
-      refresh_token = authObj.refresh_token
-      if refresh_token then
-         return_type = 2;
-      end
-      return authObj,err,return_type;
-   end
-end 
+
 
 -- 授权码模式获取授权码的重定向地址
 local function  get_redirect_uri(client_id)
