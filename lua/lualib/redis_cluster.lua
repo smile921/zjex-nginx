@@ -137,7 +137,10 @@ end
 
 function _M.setSession(session_id,key,value)
   
-  local red = redis_pool_get_redis_conn()  
+  local red = redis_pool_get_redis_conn() 
+  if not red then
+     ngx.log(ngx.ERR,"connot connect to redis pool !")
+  end 
   local redis_key = _M.prefix..session_id
   value  = json.encode(value);
   ok, err = retryHset(red,redis_key ,key , value)
