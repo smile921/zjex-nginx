@@ -1,5 +1,8 @@
-  local json = require("json_util")
-
+ 
+  local json_parser = require "json_parser"
+  local auth2 = require "auth2"  
+  local constants = require "constants"
+  
   local request_method = ngx.var.request_method;
   local args=nil;   
   ----获取参数的值
@@ -8,7 +11,10 @@
   elseif "POST" == request_method then
      ngx.req.read_body();
      args = ngx.req.get_post_args()
-  end 
+  end
+  local conf = {};
+  conf.args = args;
+
 
   args.method = request_method;
-  ngx.say( json.encode( args ))
+  ngx.say( json_parser.encode( args ))

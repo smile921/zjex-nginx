@@ -4,30 +4,28 @@ local json_parser = require "json_parser"
 
 local _M = {}
 
-local CONTENT_LENGTH = "content-length"
-local RESPONSE_TYPE = "response_type"
-local STATE = "state"
-local CODE = "code"
-local TOKEN = "token"
-local REFRESH_TOKEN = "refresh_token"
-local SCOPE = "scope"
-local CLIENT_ID = "client_id"
-local CLIENT_SECRET = "client_secret"
-local REDIRECT_URI = "redirect_uri"
-local ACCESS_TOKEN = "access_token"
-local GRANT_TYPE = "grant_type"
-local GRANT_AUTHORIZATION_CODE = "authorization_code"  -- /token grant_type=authorization_code 
-local GRANT_CLIENT_CREDENTIALS = "client_credentials"  -- /token grant_type=client_credentials
-local GRANT_REFRESH_TOKEN = "refresh_token"            -- /token grant_type=refresh_token
-local GRANT_PASSWORD = "password"                      -- /token grant_type=password
-local ERROR = "error"
-local AUTHENTICATED_USERID = "authenticated_userid"
-
-local AUTHORIZE_URL = "^%s/oauth/authorize/?$"
-local TOKEN_URL = "^%s/oauth/token/?$"
- 
-local GRANT_IMPLICIT = "implicit"   -- /token grant_type=implicit   
-local AUTHORIZATION_CODE_URL = "code"  -- response_type=code /authrize
+-- local CONTENT_LENGTH = "content-length"
+-- local RESPONSE_TYPE = "response_type"
+-- local STATE = "state"
+-- local CODE = "code"
+-- local TOKEN = "token"
+-- local REFRESH_TOKEN = "refresh_token"
+-- local SCOPE = "scope"
+-- local CLIENT_ID = "client_id"
+-- local CLIENT_SECRET = "client_secret"
+-- local REDIRECT_URI = "redirect_uri"
+-- local ACCESS_TOKEN = "access_token"
+-- local GRANT_TYPE = "grant_type"
+-- local GRANT_AUTHORIZATION_CODE = "authorization_code"  -- /token grant_type=authorization_code 
+-- local GRANT_CLIENT_CREDENTIALS = "client_credentials"  -- /token grant_type=client_credentials
+-- local GRANT_REFRESH_TOKEN = "refresh_token"            -- /token grant_type=refresh_token
+-- local GRANT_PASSWORD = "password"                      -- /token grant_type=password
+-- local ERROR = "error"
+-- local AUTHENTICATED_USERID = "authenticated_userid"
+-- local AUTHORIZE_URL = "^%s/oauth/authorize/?$"
+-- local TOKEN_URL = "^%s/oauth/token/?$" 
+-- local GRANT_IMPLICIT = "implicit"   -- /token grant_type=implicit   
+-- local AUTHORIZATION_CODE_URL = "code"  -- response_type=code /authrize
   
 -- 获取token  
 local function get_token_by_type(conf,gtant_type)
@@ -98,12 +96,12 @@ local function parseTokenResponse( response )
 end 
 
 -- 授权码模式获取授权码的重定向地址
-local function get_redirect_uri(client_id)
+local function  get_redirect_uri;(client_id)
    
 end
 
  
 
- 
-
+   _M.get_token_by_type = get_token_by_type;
+   _M.get_redirect_uri = get_redirect_uri;
 return _M
