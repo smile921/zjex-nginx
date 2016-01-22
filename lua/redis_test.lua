@@ -2,7 +2,7 @@ local init_cfg = require("init_cfg")
 local json     = require ("cjson")
 local redis = require ("resty.redis")
   local json_parser = require "json_parser"
-  local auth2 = require "auth2"  
+  local oauth2 = require "oauth2"  
   local constants = require "constants"
   
   local request_method = ngx.var.request_method;
@@ -20,7 +20,7 @@ local redis = require ("resty.redis")
   args.redirect_uri = init_cfg.redirect_uri;
   conf.args = args;
   conf.grant_type=constants.GRANT_TYPE.GRANT_CLIENT_CREDENTIALS；
-  local a,b,c = auth2.get_token_by_type(conf,conf.grant_type)
+  local a,b,c = oauth2.get_token_by_type(conf,conf.grant_type)
   ngx.say("a : " .. type(a))
   ngx.say("b : " .. type(b))
   ngx.say("c : " .. type(c))

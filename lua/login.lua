@@ -1,6 +1,6 @@
  
   local json_parser = require "json_parser"
-  local auth2 = require "auth2"  
+  local oauth2 = require "oauth2"  
   local constants = require "constants"
   
   local request_method = ngx.var.request_method;

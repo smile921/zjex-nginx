@@ -202,3 +202,93 @@ coroutine 0:
 2016/01/21 15:44:34 [notice] 29102#0: start worker process 29103
 2016/01/21 15:44:48 [error] 29103#0: *1 failed to load external Lua file "/home/ngx_lua/zjex-nginx/lua/login.lua": /home/ngx_lua/zjex-nginx/lua/login.lua:1: unexpected symbol near '.', client: 10.88.1.13, server: localhost, request: "GET /login?username=ads&password=ss HTTP/1.1", host: "10.88.1.215:9988", referrer: "http://10.88.1.215:9988/index.html"
 2016/01/21 15:44:48 [error] 29103#0: *1 open() "/home/ngx_lua/zjex-nginx/root/50x.html" failed (2: No such file or directory), client: 10.88.1.13, server: localhost, request: "GET /login?username=ads&password=ss HTTP/1.1", host: "10.88.1.215:9988", referrer: "http://10.88.1.215:9988/index.html"
+2016/01/21 15:47:04 [notice] 29102#0: signal 15 (SIGTERM) received, exiting
+2016/01/21 15:47:04 [notice] 29103#0: exiting
+2016/01/21 15:47:04 [notice] 29103#0: exit
+2016/01/21 15:47:04 [notice] 29102#0: signal 17 (SIGCHLD) received
+2016/01/21 15:47:04 [notice] 29102#0: worker process 29103 exited with code 0
+2016/01/21 15:47:04 [notice] 29102#0: exit
+2016/01/21 15:47:04 [notice] 29149#0: using the "epoll" event method
+2016/01/21 15:47:04 [notice] 29149#0: openresty/1.7.10.2
+2016/01/21 15:47:04 [notice] 29149#0: built by gcc 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+2016/01/21 15:47:04 [notice] 29149#0: OS: Linux 2.6.32-431.el6.x86_64
+2016/01/21 15:47:04 [notice] 29149#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/01/21 15:47:04 [notice] 29150#0: start worker processes
+2016/01/21 15:47:04 [notice] 29150#0: start worker process 29151
+2016/01/22 12:05:22 [notice] 29150#0: signal 15 (SIGTERM) received, exiting
+2016/01/22 12:05:22 [notice] 29151#0: exiting
+2016/01/22 12:05:22 [notice] 29151#0: exit
+2016/01/22 12:05:22 [notice] 29150#0: signal 17 (SIGCHLD) received
+2016/01/22 12:05:22 [notice] 29150#0: worker process 29151 exited with code 0
+2016/01/22 12:05:22 [notice] 29150#0: exit
+2016/01/22 12:05:22 [notice] 9540#0: using the "epoll" event method
+2016/01/22 12:05:22 [notice] 9540#0: openresty/1.7.10.2
+2016/01/22 12:05:22 [notice] 9540#0: built by gcc 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+2016/01/22 12:05:22 [notice] 9540#0: OS: Linux 2.6.32-431.el6.x86_64
+2016/01/22 12:05:22 [notice] 9540#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/01/22 12:05:22 [notice] 9541#0: start worker processes
+2016/01/22 12:05:22 [notice] 9541#0: start worker process 9542
+2016/01/22 12:05:59 [error] 9542#0: *1 lua entry thread aborted: runtime error: /home/ngx_lua/zjex-nginx/lua/redis_test.lua:5: module 'auth2' not found:
+	no field package.preload['auth2']
+	no file 'resty/auth2.lua'
+	no file 'lua/lualib/auth2.lua'
+	no file 'lua/auth2.lua'
+	no file '/home/ngx_lua/openresty/lualib/auth2.lua'
+	no file '/home/ngx_lua/openresty/lualib/auth2/init.lua'
+	no file './auth2.lua'
+	no file '/home/ngx_lua/openresty/luajit/share/luajit-2.1.0-alpha/auth2.lua'
+	no file '/usr/local/share/lua/5.1/auth2.lua'
+	no file '/usr/local/share/lua/5.1/auth2/init.lua'
+	no file '/home/ngx_lua/openresty/luajit/share/lua/5.1/auth2.lua'
+	no file '/home/ngx_lua/openresty/luajit/share/lua/5.1/auth2/init.lua'
+	no file 'lua/lualib/auth2.so'
+	no file '/home/ngx_lua/openresty/lualib/auth2.so'
+	no file './auth2.so'
+	no file '/usr/local/lib/lua/5.1/auth2.so'
+	no file '/home/ngx_lua/openresty/luajit/lib/lua/5.1/auth2.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	/home/ngx_lua/zjex-nginx/lua/redis_test.lua:5: in function </home/ngx_lua/zjex-nginx/lua/redis_test.lua:1>, client: 10.88.1.7, server: localhost, request: "GET /lua_redis HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/22 12:05:59 [error] 9542#0: *1 open() "/home/ngx_lua/zjex-nginx/root/50x.html" failed (2: No such file or directory), client: 10.88.1.7, server: localhost, request: "GET /lua_redis HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/22 12:07:31 [notice] 9541#0: signal 15 (SIGTERM) received, exiting
+2016/01/22 12:07:31 [notice] 9542#0: exiting
+2016/01/22 12:07:31 [notice] 9542#0: exit
+2016/01/22 12:07:31 [notice] 9541#0: signal 17 (SIGCHLD) received
+2016/01/22 12:07:31 [notice] 9541#0: worker process 9542 exited with code 0
+2016/01/22 12:07:31 [notice] 9541#0: exit
+2016/01/22 12:07:31 [notice] 9580#0: using the "epoll" event method
+2016/01/22 12:07:31 [notice] 9580#0: openresty/1.7.10.2
+2016/01/22 12:07:31 [notice] 9580#0: built by gcc 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+2016/01/22 12:07:31 [notice] 9580#0: OS: Linux 2.6.32-431.el6.x86_64
+2016/01/22 12:07:31 [notice] 9580#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/01/22 12:07:31 [notice] 9581#0: start worker processes
+2016/01/22 12:07:31 [notice] 9581#0: start worker process 9582
+2016/01/22 12:07:36 [error] 9582#0: *1 lua entry thread aborted: runtime error: error loading module 'oauth2' from file 'lua/lualib/oauth2.lua':
+	lua/lualib/oauth2.lua:99: '(' expected near ';'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	/home/ngx_lua/zjex-nginx/lua/redis_test.lua:5: in function </home/ngx_lua/zjex-nginx/lua/redis_test.lua:1>, client: 10.88.1.7, server: localhost, request: "GET /lua_redis HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/22 12:07:36 [error] 9582#0: *1 open() "/home/ngx_lua/zjex-nginx/root/50x.html" failed (2: No such file or directory), client: 10.88.1.7, server: localhost, request: "GET /lua_redis HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/22 12:08:32 [notice] 9581#0: signal 15 (SIGTERM) received, exiting
+2016/01/22 12:08:32 [notice] 9582#0: exiting
+2016/01/22 12:08:32 [notice] 9582#0: exit
+2016/01/22 12:08:32 [notice] 9581#0: signal 17 (SIGCHLD) received
+2016/01/22 12:08:32 [notice] 9581#0: worker process 9582 exited with code 0
+2016/01/22 12:08:32 [notice] 9581#0: exit
+2016/01/22 12:08:32 [notice] 9600#0: using the "epoll" event method
+2016/01/22 12:08:32 [notice] 9600#0: openresty/1.7.10.2
+2016/01/22 12:08:32 [notice] 9600#0: built by gcc 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+2016/01/22 12:08:32 [notice] 9600#0: OS: Linux 2.6.32-431.el6.x86_64
+2016/01/22 12:08:32 [notice] 9600#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2016/01/22 12:08:32 [notice] 9601#0: start worker processes
+2016/01/22 12:08:32 [notice] 9601#0: start worker process 9602
+2016/01/22 12:09:37 [error] 9602#0: *1 upstream timed out (110: Connection timed out) while connecting to upstream, client: 10.88.1.7, server: localhost, request: "GET /lua_redis HTTP/1.1", subrequest: "/gateway_token", upstream: "http://10.88.1.4:8900/oauth/token", host: "10.88.1.215:9988"
+2016/01/22 12:09:37 [error] 9602#0: *1 lua entry thread aborted: runtime error: lua/lualib/oauth2.lua:73: attempt to call global 'parseTokenResponse' (a nil value)
+stack traceback:
+coroutine 0:
+	lua/lualib/oauth2.lua: in function 'get_token_by_type'
+	/home/ngx_lua/zjex-nginx/lua/redis_test.lua:23: in function </home/ngx_lua/zjex-nginx/lua/redis_test.lua:1> while sending to client, client: 10.88.1.7, server: localhost, request: "GET /lua_redis HTTP/1.1", host: "10.88.1.215:9988"
+2016/01/22 12:09:37 [error] 9602#0: *1 open() "/home/ngx_lua/zjex-nginx/root/50x.html" failed (2: No such file or directory), client: 10.88.1.7, server: localhost, request: "GET /lua_redis HTTP/1.1", host: "10.88.1.215:9988"

@@ -96,7 +96,7 @@ local function parseTokenResponse( response )
 end 
 
 -- 授权码模式获取授权码的重定向地址
-local function  get_redirect_uri;(client_id)
+local function  get_redirect_uri(client_id)
    
 end
 
