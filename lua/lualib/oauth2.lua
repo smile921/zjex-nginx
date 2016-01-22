@@ -50,6 +50,7 @@ end
   
 -- 获取token  
 local function get_token_by_type(conf,gtant_type)
+   ngx.log(ngx.DEBUG,gtant_type)
    local suffix = "?"
    if gtant_type and gtant_type == constants.GRANT_TYPE.GRANT_CLIENT_CREDENTIALS then
       args = conf.args;

@@ -19,11 +19,16 @@ local redis = require ("resty.redis")
   args.client_secret = init_cfg.client_secret;
   args.redirect_uri = init_cfg.redirect_uri;
   conf.args = args;
-  conf.grant_type=constants.GRANT_TYPE.GRANT_CLIENT_CREDENTIALS；
+  conf.grant_type = constants.GRANT_TYPE.GRANT_CLIENT_CREDENTIALS;
   local a,b,c = oauth2.get_token_by_type(conf,conf.grant_type)
-  ngx.say("a : " .. type(a))
+  if a then
+    ngx.say("access_token : " .. a.access_token)
+    if c == 2 then
+       ngx.say("refresh_token : " .. a.refresh_token)
+    end
+  end
   ngx.say("b : " .. type(b))
-  ngx.say("c : " .. type(c))
+  
 
   ngx.say("<br><br><br><br><br><br><br><br><br><br><br><br>");
 
