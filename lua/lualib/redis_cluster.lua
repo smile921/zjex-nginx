@@ -126,7 +126,7 @@ local function retryHset(red,keyname,field,value)
         end
          ngx.log(ngx.INFO,"<br>reconnect to ip="..(ip or "nil ip").."   port = "..(port or "nil port").."<br>")
          ok,err = red:hset(keyname,field,value)
-         ngx.log(ngx.DEBUG,"rehset: ok="..(ok or " nil ")..(error " nil"))
+         ngx.log(ngx.DEBUG,"rehset: ok="..(ok or " nil ")..(err " nil"))
       end
       return ok,err
 end
@@ -144,7 +144,7 @@ local function retryHget(red,keyname,field)
         end         
          ngx.log(ngx.INFO,"<br>reconnect to ip="..(ip or "nil ip").."   port = "..(port or "nil port").."<br>")
          ok,err = red:hget(keyname,field)
-         ngx.log(ngx.DEBUG,"rehget: ok="..(ok or " nil ")..(error " nil"))
+         ngx.log(ngx.DEBUG,"rehget: ok="..(ok or " nil ")..(err " nil"))
       end
       return ok,err
 end
