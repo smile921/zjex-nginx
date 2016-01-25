@@ -4,6 +4,8 @@
   local redis_cluster = require "redis_cluster";
   local sessionzj = require("zjsession");
   local init_cfg = require("init_cfg")
+  local stringy = require "stringy";
+  local resty_string = require ("resty.string");
 
   local request_method = ngx.var.request_method;
   local args=nil;   
@@ -42,9 +44,11 @@
   local api_params =json_parser.encode( args );
   --ngx.log(ngx.DEBUG,api_params);
   local request_uri = ngx.var.request_uri;
-  ngx.log(ngx.DEBUG,request_uri.."   $$ "..ngx.unescape_uri(request_uri));
-
-  local path ="/gateway_api/api/1/project/project";
+  request_uri = ngx.unescape_uri(request_uri)
+  local endPos = stringy.find(request_uri,"?");
+  local base = string.sub(request_uri,1,endPos-1);
+  local path ="/gateway_api/api/";
+  path = string.gsub(base,"/zjex_rest",path,1);
   local response = nil;
   if "GET" == request_method then
     -- TODO 把get请求的参数拼接到path后面，拼接token参数，参数需要编码

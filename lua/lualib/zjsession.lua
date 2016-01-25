@@ -71,7 +71,7 @@ local function prepareArgs( args )
      argsFinal = argsFinal .. k .. "=" .. (args[k] or " ").."&"
   end
   if stringy.endswith(argsFinal,"&") then
-     argsFinal = string.gsub(argsFinal,1,-1);
+     argsFinal = string.sub(argsFinal,1,-1);
      ngx.log(ngx.DEBUG,argsFinal);
   end
   return argsFinal;
