@@ -114,11 +114,15 @@ function redis_pool_close(red_name)
 --集群重连一次
 local function retryHset(red,keyname,field,value)
       local ok,err = red:hset(keyname,field,value)      
-      ngx.log(ngx.DEBUG,"hget once   ok="..ok..type(err))
+      ngx.log(ngx.DEBUG,"hget once   ok="..(ok or "nil  err=")..(err or "")
       local flag,ip,port = isClusterChanged(ok,err)
       if flag then
          --重连，之后再次调用
-         red:connect(ip,port);
+        ok,err = red:connect(ip,port);
+        if not ok then
+           ngx.log(ngx.ERR,"failed to connect: "..err)
+           return nil, err
+        end
          ngx.log(ngx.INFO,"<br>reconnect to ip="..(ip or "nil ip").."   port = "..(port or "nil port").."<br>")
          ok,err = red:hset(keyname,field,value)
       end
@@ -127,11 +131,15 @@ end
 -- 
 local function retryHget(red,keyname,field)
       local ok,err = red:hget(keyname,field)
-      ngx.log(ngx.DEBUG,"hget once   ok="..ok..type(err))
+      ngx.log(ngx.DEBUG,"hget once   ok="..(ok or "nil  err=")..(err or "")
       local flag,ip,port = isClusterChanged(ok,err)
       if flag then
          --重连，之后再次调用
-         red:connect(ip,port);          
+        ok,err = red:connect(ip,port);
+        if not ok then
+           ngx.log(ngx.ERR,"failed to connect: "..err)
+           return nil, err
+        end         
          ngx.log(ngx.INFO,"<br>reconnect to ip="..(ip or "nil ip").."   port = "..(port or "nil port").."<br>")
          ok,err = red:hget(keyname,field)
       end
