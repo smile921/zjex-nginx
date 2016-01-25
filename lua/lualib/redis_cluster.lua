@@ -71,6 +71,7 @@ function redis_pool_get_redis_conn(red_name)
     ngx.log(ngx.INFO,"connect redis completed!")
     red:set_timeout(redis_timeout) 
     red_pool[pool_name] = red
+    ngx.log(ngx.DEBUG,"ngx.ctx[redis_pool] ".. type(ngx.ctx))
     ngx.ctx[redis_pool] = red_pool 
     return  red  -- ngx.ctx[redis_pool]
 end
