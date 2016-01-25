@@ -80,6 +80,35 @@ function redis_pool_get_redis_conn(red_name)
     return  red  -- ngx.ctx[redis_pool]
 end
 
+function redis_pool_get_changed_redis_conn(host,port,red_name)  
+    local app_name = ngx.ctx.APP_NAME
+    local redis_name= red_name or 'redis'
+    local pool_name= redis_name..redis_name
+    local red_pool = ngx.ctx[_M.redis_pool]
+    -- if red_pool and red_pool[pool_name] then
+    --      return  red_pool[pool_name]
+    -- end
+    if not red_pool then
+        red_pool = {}
+    end 
+    local red = redis:new()
+    local redis_host,redis_port,redis_timeout,redis_poolsize= redis_pool_get_redis_conf(redis_name)
+    redis_host = host;
+    redis_port = port ;
+    ngx.log(ngx.INFO,"host = "..redis_host .. " port = ".. redis_port .. " timeout = ".. redis_timeout .. " pool_size = ".. redis_poolsize)
+    local ok, err = red:connect(redis_host,redis_port)
+    if not ok then
+        ngx.log(ngx.ERR,"failed to connect: "..err)
+        return nil, err
+    end
+    ngx.log(ngx.INFO,"connect redis completed!")
+    red:set_timeout(redis_timeout) 
+    red_pool[pool_name] = red
+    --ngx.log(ngx.DEBUG,"ngx.ctx[redis_pool] ".. type(ngx.ctx))
+    ngx.ctx[_M.redis_pool] = red_pool 
+    return  red  -- ngx.ctx[redis_pool]
+end
+
 function redis_pool_close(red_name)
     local app_name = ngx.ctx.APP_NAME
     local redis_name= red_name or 'redis'
@@ -87,7 +116,7 @@ function redis_pool_close(red_name)
     local red_pool = ngx.ctx[_M.redis_pool]
     if red_pool and red_pool[pool_name] then
          local redis_host,redis_port,redis_timeout,redis_poolsize= redis_pool_get_redis_conf(redis_name)
-	 local red = red_pool[pool_name] 
+	       local red = red_pool[pool_name] 
          red:set_keepalive(redis_timeout, redis_poolsize)
          -- ngx.ctx[redis_pool] = nil
          red_pool[pool_name] = nil
@@ -113,38 +142,42 @@ function redis_pool_close(red_name)
  
 ------------------------------------------------------
 --集群重连一次
-local function retryHset(red,keyname,field,value)
+local function retryHset(keyname,field,value)
+      red = redis_pool_get_redis_conn(); 
       local ok,err = red:hset(keyname,field,value)      
       ngx.log(ngx.DEBUG,"hget once   ok="..(ok or "nil  err=").." err="..(err or ""))
       local flag,ip,port = isClusterChanged(ok,err)
       if flag then
-         --重连，之后再次调用
-        ok,err = red:connect(ip,port);
-        if not ok then
-           ngx.log(ngx.ERR,"failed to connect: "..err)
-           return nil, err
+         --重连，之后再次调用 
+        red =redis_pool_get_changed_redis_conn(ip,port); 
+        if not red then
+           ngx.log(ngx.ERR,"failed to connect: "..ip..port)
+           return nil, nil;
         end
          ngx.log(ngx.INFO,"<br>reconnect to ip="..(ip or "nil ip").."   port = "..(port or "nil port").."<br>")
          ok,err = red:hset(keyname,field,value)
          ngx.log(ngx.DEBUG,"rehset: ok="..(ok or " nil ").." err="..(err or" nil"))
+         redis_pool_close();
       end
       return ok,err
 end
 -- 
-local function retryHget(red,keyname,field)
+local function retryHget(keyname,field)
+      red = redis_pool_get_redis_conn();
       local ok,err = red:hget(keyname,field)
       ngx.log(ngx.DEBUG,"hget once   ok="..(ok or "nil  ").." err="..(err or ""))
       local flag,ip,port = isClusterChanged(ok,err)
       if flag then
          --重连，之后再次调用
-        ok,err = red:connect(ip,port);
-        if not ok then
-           ngx.log(ngx.ERR,"failed to connect: "..err)
-           return nil, err
+        red = redis_pool_get_changed_redis_conn(ip,port);
+        if not red then
+           ngx.log(ngx.ERR,"failed to connect: "..ip..port)
+           return nil, nil
         end         
          ngx.log(ngx.INFO,"<br>reconnect to ip="..(ip or "nil ip").."   port = "..(port or "nil port").."<br>")
          ok,err = red:hget(keyname,field)
          ngx.log(ngx.DEBUG,"rehget: ok="..(ok or " nil ").." err="..(err or " nil"))
+         redis_pool_close();
       end
       return ok,err
 end
@@ -153,33 +186,36 @@ end
 
 local function setSession(session_id,key,value)
   ngx.log(ngx.DEBUG,"setSession  id="..session_id.." key="..key.." value="..value)
-    red = redis_pool_get_redis_conn() 
+  red = redis_pool_get_redis_conn();
+  redis_pool_close(); 
   if not red then
-     ngx.log(ngx.ERR,"connot connect to redis pool !")
+     ngx.log(ngx.ERR,"connot get connection from redis pool !")
   end 
   local redis_key = _M.prefix..session_id
   value  = json.encode(value);
-  ok, err = retryHset(red,redis_key ,key , value)
+  ok, err = retryHset(redis_key ,key , value)
   if not ok then
     return ok, err;
   end
+  red = redis_pool_get_redis_conn();
   ngx.log(ngx.DEBUG,".."..cfg.redis_config.expire_timeout..type(red))
   ok,err = red:expire(redis_key,cfg.redis_config.expire_timeout) --1  
-  ok , err = red:set_keepalive(0,100)
+  redis_pool_close();
   return ok,err; 
 end
 
 local function getSession(session_id,key)
     
   local value = nil  
-    red = redis_pool_get_redis_conn()
+  red = redis_pool_get_redis_conn();
+  redis_pool_close();
   local redis_key = _M.prefix..session_id 
-  local res, err = retryHget(red,redis_key,key )
+  local res, err = retryHget(redis_key,key )
   value = res
   if value and tostring(value) == "userdata: NULL" then
     value = nil
   end
-  red:set_keepalive(0,100)
+  redis_pool_close();
   return value 
 end
 
