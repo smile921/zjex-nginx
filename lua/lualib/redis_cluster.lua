@@ -178,6 +178,7 @@ local function retryHget(keyname,field)
          ok,err = red:hget(keyname,field)
          ngx.log(ngx.DEBUG,"rehget: ok="..(ok or " nil ").." err="..(err or " nil"))
          redis_pool_close();
+         return ok,err;
       end
       return ok,err
 end
