@@ -14,7 +14,7 @@
      args = ngx.req.get_post_args()
   end
   args.method = request_method;
-  local sessionid = sessionzj.getSessionId();
+  local isGot,sessionid = sessionzj.getSessionId();
   ngx.log(ngx.DEBUG,"session id = "..( sessionid or "nil"))
 
   local conf = {};
