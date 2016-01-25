@@ -33,7 +33,7 @@
     if tokenLenth == 2 then
        local refresh_token = authObj.refresh_token;
        redis_cluster.setSession(sessionid,constants.KEY_REFRESH_TOKEN,refresh_token);
-       ngx.log(ngx.DEBUG,"refresh_token"..refresh_token);
+       ngx.log(ngx.DEBUG,"refresh_token = "..refresh_token);
     end
     ngx.log(ngx.DEBUG,"access_token = "..token)
     local datas = {};
