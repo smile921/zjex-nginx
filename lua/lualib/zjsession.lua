@@ -44,7 +44,19 @@ local function getSessionId()
   return false,"解析生成cookie签名异常,请清理浏览器缓存或重启浏览器再试",nil
 end
 
+local function copyTab(st)
+    local tab = {}
+    for k, v in pairs(st or {}) do
+        if type(v) ~= "table" then
+            tab[k] = v
+        else
+            tab[k] = copyTab(v)
+        end
+    end
+    return tab
+end
 
+_M.copyTab = copyTab;
 _M.session_cookie_name =session_cookie_name;
 _M.getSessionId =  getSessionId;
 return _M;
