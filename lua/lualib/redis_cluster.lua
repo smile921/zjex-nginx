@@ -135,7 +135,7 @@ end
 
 
 
-function _M.setSession(session_id,key,value)
+local function setSession(session_id,key,value)
   
   local red = redis_pool_get_redis_conn() 
   if not red then
@@ -152,7 +152,7 @@ function _M.setSession(session_id,key,value)
   return ok,err; 
 end
 
-function _M.getSession(session_id,key)
+local function getSession(session_id,key)
     
   local value = nil  
   local red = redis_pool_get_redis_conn()
@@ -169,7 +169,7 @@ function _M.getSession(session_id,key)
   return value 
 end
 
-_M.getSession = getSession;
-_M.setSession = setSession; 
+    _M.getSession = getSession;
+    _M.setSession = setSession; 
 --################################################################################
 return _M;
