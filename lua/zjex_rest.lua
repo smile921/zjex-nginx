@@ -39,7 +39,7 @@
   end
   args.token = token;    
   -- 调用api不成功，可根据错误信息，判断是否刷新token或者跳转到登录页面
-  local api_params =json_parser.encode( args );
+  local api_params =json_parser.encode( args );ngx.log(ngx.DEBUG,path);
   local path ="/gateway_api/api";
   local response = nil;
   if "GET" == request_method then
