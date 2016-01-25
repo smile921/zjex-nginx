@@ -161,9 +161,10 @@ local function setSession(session_id,key,value)
   value  = json.encode(value);
   ok, err = retryHset(red,redis_key ,key , value)
   if not ok then
-    return
+    return ok, err;
   end
-  red:expire(redis_key,cfg.redis_config.timeout) --1  
+  ngx.log(ngx.DEBUG,".."..cfg.redis_config.expire_timeout..type(red))
+  ok,err = red:expire(redis_key,cfg.redis_config.expire_timeout) --1  
   local ok , err = red:set_keepalive(0,100)
   return ok,err; 
 end
