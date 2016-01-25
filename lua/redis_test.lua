@@ -3,6 +3,7 @@ local json     = require ("cjson")
 local redis = require ("resty.redis")
 local redis_cluster = require "redis_cluster";
 
+ngx.log(ngx.DEBUG,"redis_cluster ".. type(redis_cluster))
 redis_cluster.setSession("abced","hello1","hello");
 ngx.say("<br" .. (redis_cluster.getSession("abced","hello1") or "error ") .."<br>")
 
