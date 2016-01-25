@@ -1,4 +1,5 @@
-
+local stringy = require "stringy";
+local resty_string = require ("resty.string");
 local _M = {};
 local session_cookie_name="z_2_j_0_e_1_x_6_o_0_p_2_e_9_n";
 local function getSessionIdFromCookie()
@@ -56,6 +57,26 @@ local function copyTab(st)
     return tab
 end
 
+local function encodeURI(s)
+    s = string.gsub(s, "([^%w%.%- ])", function(c) return string.format("%%%02X", string.byte(c)) end)
+    return string.gsub(s, " ", "+")
+end
+
+local function prepareArgs( args )
+  -- body
+  local argsFinal = "";
+  for k,v in ipairs(args or {}) do
+     argsFinal = argsFinal .. k .. "=" .. (args[k] or " ").."&"
+  end
+  if stringy.endswith(argsFinal,"&") then
+     argsFinal = string.gsub(argsFinal,1,-1);
+     ngx.log(ngx.DEBUG,argsFinal);
+  end
+  return argsFinal;
+end 
+
+_M.prepareArgs =prepareArgs;
+_M.encodeURI = encodeURI;
 _M.copyTab = copyTab;
 _M.session_cookie_name =session_cookie_name;
 _M.getSessionId =  getSessionId;
