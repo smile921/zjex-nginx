@@ -15,10 +15,12 @@ local data = yaml.load(some_yaml)
 local yaml_string = yaml.dump(some_table)
 ## document for libs uuid
 ---lua
+	 
 	 local uuid = require("uuid")
 	 print("here's a new uuid: ",uuid())
 
-	 local socket = require("socket")  -- gettime() has higher precision than os.time()
+	 local socket = require("socket")  
+	 -- gettime() has higher precision than os.time()
 	 local uuid = require("uuid")
 	 -- see also example at uuid.seed()
 	 uuid.randomseed(socket.gettime()*10000)
