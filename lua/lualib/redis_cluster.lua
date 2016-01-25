@@ -187,11 +187,11 @@ end
 
 local function setSession(session_id,key,value)
   ngx.log(ngx.DEBUG,"setSession  id="..session_id.." key="..key.." value="..value)
-  red = redis_pool_get_redis_conn();
-  redis_pool_close(); 
-  if not red then
-     ngx.log(ngx.ERR,"connot get connection from redis pool !")
-  end 
+  -- red = redis_pool_get_redis_conn();
+  -- redis_pool_close(); 
+  -- if not red then
+  --    ngx.log(ngx.ERR,"connot get connection from redis pool !")
+  -- end 
   local redis_key = _M.prefix..session_id
   value  = json.encode(value);
   ok, err = retryHset(redis_key ,key , value)
@@ -208,15 +208,16 @@ end
 local function getSession(session_id,key)
     
   local value = nil  
-  red = redis_pool_get_redis_conn();
-  redis_pool_close();
+  -- red = redis_pool_get_redis_conn();
+  -- redis_pool_close();
   local redis_key = _M.prefix..session_id 
   local res, err = retryHget(redis_key,key )
   value = res
   if value and tostring(value) == "userdata: NULL" then
     value = nil
   end
-  redis_pool_close();
+  -- redis_pool_close();
+  ngx.log(ngx.DEBUG,value)
   return value 
 end
 
