@@ -3,7 +3,8 @@
   local constants = require "constants";
   local redis_cluster = require "redis_cluster";
   local sessionzj = require("zjsession");
-
+  local init_cfg = require("init_cfg")
+  
   local request_method = ngx.var.request_method;
   local args=nil;   
   ----获取参数的值
