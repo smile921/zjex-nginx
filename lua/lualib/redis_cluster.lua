@@ -2,7 +2,8 @@ local redis = require ("resty.redis")
 local stringy = require "stringy" 
 local constants = require "constants" 
 local cfg   = require ("init_cfg")
-
+local json_parser = require "json_parser"
+local json     = require ("cjson")
 
 local _M = {}
 local redis_pool = { };
