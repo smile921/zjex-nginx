@@ -44,8 +44,8 @@
   local response = nil;
   if "GET" == request_method then
     -- TODO 把get请求的参数拼接到path后面，拼接token参数，参数需要编码
-    uriArgs = zjsession.prepareArgs(args);
-    uriArgs = zjsession.encodeURI(uriArgs);
+    uriArgs = sessionzj.prepareArgs(args);
+    uriArgs = sessionzj.encodeURI(uriArgs);
     path = path .. "?" .. uriArgs;
     ngx.log(ngx.DEBUG,path);
     response = ngx.location.capture( path,{ 
