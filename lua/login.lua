@@ -34,12 +34,16 @@
        local refresh_token = authObj.refresh_token;
        redis_cluster.setSession(sessionid,constants.KEY_REFRESH_TOKEN,refresh_token);
     end
-    local datas = {flag:"true",message:"login success!"};
+    local datas = {};
+    datas.flag = "true";
+    datas.message = "login success!";
     local data = json_parser.encode(datas)
     ngx.say(data);
     return;
   else
-    local datas = {flag:"false",message:json_parser.encode(err)};
+    local datas = {};
+    datas.flag = "false";
+    datas.message = json_parser.encode(err);
     local data = json_parser.encode(datas)
     ngx.say(data);
     return;
