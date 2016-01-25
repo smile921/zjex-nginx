@@ -61,5 +61,7 @@ return {
   ERR = ngx.ERR,
   DEBUG = ngx.DEBUG,
   WARN = ngx.WARN
-} 
+  },
+  PUBLIC_TOKEN="zjex_public_token",
+  PUBLIC_REFRESH_TOKEN="zjex_refresh_token" 
 }

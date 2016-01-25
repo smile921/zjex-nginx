@@ -1,7 +1,6 @@
- 
-  local json_parser = require "json_parser"
-  local oauth2 = require "oauth2"  
-  local constants = require "constants"
+  local json_parser = require "json_parser";
+  local oauth2 = require "oauth2";  
+  local constants = require "constants";
   local redis_cluster = require "redis_cluster";
   local sessionzj = require("zjsession");
 
