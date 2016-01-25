@@ -39,8 +39,12 @@
   end
   args.token = token;    
   -- 调用api不成功，可根据错误信息，判断是否刷新token或者跳转到登录页面
-  local api_params =json_parser.encode( args );ngx.log(ngx.DEBUG,api_params);
-  local path ="/gateway_api/api";
+  local api_params =json_parser.encode( args );
+  --ngx.log(ngx.DEBUG,api_params);
+  local request_uri = ngx.var.request_uri;
+  ngx.log(ngx.DEBUG,request_uri.."   $$ "..ngx.unescape_uri(request_uri));
+
+  local path ="/gateway_api/api/1/project/project";
   local response = nil;
   if "GET" == request_method then
     -- TODO 把get请求的参数拼接到path后面，拼接token参数，参数需要编码
