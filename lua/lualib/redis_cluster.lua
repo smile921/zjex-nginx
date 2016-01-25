@@ -5,7 +5,9 @@ local cfg   = require ("init_cfg")
 
 
 local _M = {}
-    _M.prefix = "zjex.session.id"
+local redis_pool = { };
+    _M.prefix = "zjex.session.id";
+    _M.redis_pool = redis_pool;
 local function isClusterChanged(ok,err)
     if not ok and err then
        local got = string.find(err,"MOVED") 
@@ -54,7 +56,7 @@ function redis_pool_get_redis_conn(red_name)
     local app_name = ngx.ctx.APP_NAME
     local redis_name= red_name or 'redis'
     local pool_name= redis_name..redis_name
-    local red_pool = ngx.ctx[redis_pool]
+    local red_pool = ngx.ctx[_M.redis_pool]
     if red_pool and red_pool[pool_name] then
          return  red_pool[pool_name]
     end
@@ -71,8 +73,8 @@ function redis_pool_get_redis_conn(red_name)
     ngx.log(ngx.INFO,"connect redis completed!")
     red:set_timeout(redis_timeout) 
     red_pool[pool_name] = red
-    ngx.log(ngx.DEBUG,"ngx.ctx[redis_pool] ".. type(ngx.ctx))
-    ngx.ctx[redis_pool] = red_pool 
+    --ngx.log(ngx.DEBUG,"ngx.ctx[redis_pool] ".. type(ngx.ctx))
+    ngx.ctx[_M.redis_pool] = red_pool 
     return  red  -- ngx.ctx[redis_pool]
 end
 
@@ -80,7 +82,7 @@ function redis_pool_close(red_name)
     local app_name = ngx.ctx.APP_NAME
     local redis_name= red_name or 'redis'
     local pool_name= redis_name..redis_name
-    local red_pool = ngx.ctx[redis_pool]
+    local red_pool = ngx.ctx[_M.redis_pool]
     if red_pool and red_pool[pool_name] then
          local redis_host,redis_port,redis_timeout,redis_poolsize= redis_pool_get_redis_conf(redis_name)
 	 local red = red_pool[pool_name] 
