@@ -115,7 +115,7 @@ function redis_pool_close(red_name)
 --集群重连一次
 local function retryHset(red,keyname,field,value)
       local ok,err = red:hset(keyname,field,value)      
-      ngx.log(ngx.DEBUG,"hget once   ok="..(ok or "nil  err=")..(err or ""))
+      ngx.log(ngx.DEBUG,"hget once   ok="..(ok or "nil  err=").." err="..(err or ""))
       local flag,ip,port = isClusterChanged(ok,err)
       if flag then
          --重连，之后再次调用
@@ -126,14 +126,14 @@ local function retryHset(red,keyname,field,value)
         end
          ngx.log(ngx.INFO,"<br>reconnect to ip="..(ip or "nil ip").."   port = "..(port or "nil port").."<br>")
          ok,err = red:hset(keyname,field,value)
-         ngx.log(ngx.DEBUG,"rehset: ok="..(ok or " nil ")..(err " nil"))
+         ngx.log(ngx.DEBUG,"rehset: ok="..(ok or " nil ").." err="..(err " nil"))
       end
       return ok,err
 end
 -- 
 local function retryHget(red,keyname,field)
       local ok,err = red:hget(keyname,field)
-      ngx.log(ngx.DEBUG,"hget once   ok="..(ok or "nil  err=")..(err or ""))
+      ngx.log(ngx.DEBUG,"hget once   ok="..(ok or "nil  ").." err="..(err or ""))
       local flag,ip,port = isClusterChanged(ok,err)
       if flag then
          --重连，之后再次调用
@@ -144,7 +144,7 @@ local function retryHget(red,keyname,field)
         end         
          ngx.log(ngx.INFO,"<br>reconnect to ip="..(ip or "nil ip").."   port = "..(port or "nil port").."<br>")
          ok,err = red:hget(keyname,field)
-         ngx.log(ngx.DEBUG,"rehget: ok="..(ok or " nil ")..(err " nil"))
+         ngx.log(ngx.DEBUG,"rehget: ok="..(ok or " nil ").." err="..(err " nil"))
       end
       return ok,err
 end
