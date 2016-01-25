@@ -23,8 +23,10 @@ local uuid = require("uuid")
  uuid.randomseed(socket.gettime()*10000)
  print("here's a new uuid: ",uuid())
 
- ## test 
- ### oauth2 sdk部分已经实现，implicit 模式暂未测试
+## test 
+
+### oauth2 sdk部分已经实现，implicit 模式暂未测试
+
 1.  http://10.88.1.215:9988/getTokenClientCredentials?a=b
 2.  http://10.88.1.215:9988/getTokenUserNamePassword?username=frere&password=3t4u2g3j4h
 3.  http://10.88.1.215:9988/getTokenAuthorizationCode?code=123456
