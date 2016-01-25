@@ -14,15 +14,16 @@ local data = yaml.load(some_yaml)
 
 local yaml_string = yaml.dump(some_table)
 ## document for libs uuid
-local uuid = require("uuid")
- print("here's a new uuid: ",uuid())
+---lua
+	 local uuid = require("uuid")
+	 print("here's a new uuid: ",uuid())
 
- local socket = require("socket")  -- gettime() has higher precision than os.time()
- local uuid = require("uuid")
- -- see also example at uuid.seed()
- uuid.randomseed(socket.gettime()*10000)
- print("here's a new uuid: ",uuid())
-
+	 local socket = require("socket")  -- gettime() has higher precision than os.time()
+	 local uuid = require("uuid")
+	 -- see also example at uuid.seed()
+	 uuid.randomseed(socket.gettime()*10000)
+	 print("here's a new uuid: ",uuid())
+---
 ## test 
 
 ### oauth2 sdk部分已经实现，implicit 模式暂未测试
