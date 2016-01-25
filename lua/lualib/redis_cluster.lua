@@ -151,7 +151,7 @@ local function setSession(session_id,key,value)
   if not ok then
     return
   end
-  red:expire(redis_key,cfg.expire_timeout_second) --1  
+  red:expire(redis_key,cfg.redis_config.timeout) --1  
   local ok , err = red:set_keepalive(0,100)
   return ok,err; 
 end
@@ -166,8 +166,8 @@ local function getSession(session_id,key)
   if value and tostring(value) == "userdata: NULL" then
     value = nil
   else
-    red:expire(redis_key,cfg.expire_timeout_second) --1000 - 1sec
-    ngx.log(ngx.DEBUG,"  redis:expire("..redis_key..","..init_cfg.expire_timeout_second.." second)")
+    red:expire(redis_key,cfg.redis_config.timeout) --1000 - 1sec
+    ngx.log(ngx.DEBUG,"  redis:expire("..redis_key..","..cfg.redis_config.timeout.." second)")
   end
   red:set_keepalive(0,100)
   return value 
