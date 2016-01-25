@@ -22,7 +22,7 @@
   local conf = {};
   local token = redis_cluster.getSession(sessionid,constants.PUBLIC_TOKEN);
   local access_token = redis_cluster.getSession(sessionid,constants.USER_ACCESS_TOKEN);
-  if not access_token not token then  
+  if not access_token and not token then  
     argsv.client_id= init_cfg.client_id;
     argsv.client_secret = init_cfg.client_secret;
     argsv.redirect_uri = init_cfg.redirect_uri;
