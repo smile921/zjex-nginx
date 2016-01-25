@@ -22,7 +22,7 @@
   ngx.log(ngx.DEBUG,"session id = "..( sessionid or "nil"))
 
   local conf = {};
-  local token = redis_cluster.getSession(sessionid,constants.PUBLIC_TOKEN);
+  local token = redis_cluster.getSession("sessionid",constants.PUBLIC_TOKEN);
   local access_token = redis_cluster.getSession(sessionid,constants.USER_ACCESS_TOKEN);
   if not access_token and not token then  
     argsv.client_id= init_cfg.client_id;
@@ -33,7 +33,7 @@
     local authObj,err,tokenLenth = oauth2.get_token_by_type(conf,conf.grant_type)
     if authObj then
       token = authObj.access_token;
-      redis_cluster.setSession(sessionid,constants.PUBLIC_TOKEN,token);
+      redis_cluster.setSession("sessionid",constants.PUBLIC_TOKEN,token);
     end        
   end
   if   access_token   then

@@ -63,6 +63,6 @@ return {
   WARN = ngx.WARN
   },
   PUBLIC_TOKEN="zjex_public_token",
-  PUBLIC_REFRESH_TOKEN="zjex_refresh_token",
-  USER_ACCESS_TOKEN="user_access_token" 
+  KEY_REFRESH_TOKEN="zjex_refresh_token",
+  USER_ACCESS_TOKEN="user_access_token"
 }
