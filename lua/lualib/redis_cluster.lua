@@ -153,7 +153,7 @@ end
 
 local function setSession(session_id,key,value)
   ngx.log(ngx.DEBUG,"setSession  id="..session_id.." key="..key.." value="..value)
-  local red = redis_pool_get_redis_conn() 
+    red = redis_pool_get_redis_conn() 
   if not red then
      ngx.log(ngx.ERR,"connot connect to redis pool !")
   end 
@@ -165,22 +165,19 @@ local function setSession(session_id,key,value)
   end
   ngx.log(ngx.DEBUG,".."..cfg.redis_config.expire_timeout..type(red))
   ok,err = red:expire(redis_key,cfg.redis_config.expire_timeout) --1  
-  local ok , err = red:set_keepalive(0,100)
+  ok , err = red:set_keepalive(0,100)
   return ok,err; 
 end
 
 local function getSession(session_id,key)
     
   local value = nil  
-  local red = redis_pool_get_redis_conn()
+    red = redis_pool_get_redis_conn()
   local redis_key = _M.prefix..session_id 
   local res, err = retryHget(red,redis_key,key )
   value = res
   if value and tostring(value) == "userdata: NULL" then
     value = nil
-  else
-    red:expire(redis_key,cfg.redis_config.timeout) --1000 - 1sec
-    ngx.log(ngx.DEBUG,"  redis:expire("..redis_key..","..cfg.redis_config.timeout.." second)")
   end
   red:set_keepalive(0,100)
   return value 
