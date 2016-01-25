@@ -28,7 +28,8 @@
     local authObj,err,tokenLenth = oauth2.get_token_by_type(conf,conf.grant_type)
     if authObj then
       token = authObj.access_token;
-      redis_cluster.setSession(sessionid,constants.PUBLIC_TOKEN,token);        
+      redis_cluster.setSession(sessionid,constants.PUBLIC_TOKEN,token);
+    end        
   end
   args.token=token;  
   ngx.say( json_parser.encode( args ))
