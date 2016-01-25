@@ -67,6 +67,7 @@ local function prepareArgs( args )
   ngx.log(ngx.DEBUG,type(args));
   local argsFinal = "";
   for k,v in ipairs(args or {}) do
+     ngx.log(ngx.DEBUG,"k = "..k);
      argsFinal = argsFinal .. k .. "=" .. (args[k] or " ").."&"
   end
   if stringy.endswith(argsFinal,"&") then
