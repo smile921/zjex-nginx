@@ -26,7 +26,7 @@ cfg.grant_type_password = "password"
 cfg.redis_config ={
 	host = "10.88.1.214",
 	port = 7030,
-	timeout = 10000,
+	timeout = 100000,
 	poolsize = 10000
 } ;
 cfg.session_cookie_name = "k_d_0_618_n_l_j_g_s_s"

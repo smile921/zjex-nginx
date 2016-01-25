@@ -66,6 +66,7 @@ function redis_pool_get_redis_conn(red_name)
     end 
     local red = redis:new()
     local redis_host,redis_port,redis_timeout,redis_poolsize= redis_pool_get_redis_conf(redis_name)
+    ngx.log(ngx.INFO,"host = "..redis_host .. " port = ".. redis_port .. " timeout = ".. redis_timeout .. " pool_size = ".. redis_poolsize)
     local ok, err = red:connect(redis_host,redis_port)
     if not ok then
         ngx.log(ngx.ERR,"failed to connect: "..err)
