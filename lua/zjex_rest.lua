@@ -5,7 +5,7 @@
   local sessionzj = require("zjsession");
   local init_cfg = require("init_cfg")
   local stringy = require "stringy";
-  local resty_string = require ("resty.string");
+  --local resty_string = require ("resty.string");
 
   local request_method = ngx.var.request_method;
   local args=nil;   
@@ -69,5 +69,22 @@
   end
   if response and response.status == 200 then
     --todo 
-    ngx.say(response.body)
+    ngx.say(response.body);
+
+    return ;
+  else
+    local status = 0;
+    local body = nil;
+    if not response then
+       --
+       status = 500;
+       body = "check server or lua script !"
+    else
+       status = response.status;
+       body =  response.body
+       ngx.status = status;
+       ngx.say(body);
+       return;
+    end
+    
   end
