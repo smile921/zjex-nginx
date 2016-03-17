@@ -4,7 +4,7 @@ VER_NGINX=1.7.12
 VER_LUAJIT=2.0.4
 VER_PCRE=8.38
 VER_READLINE=6.3
-VER_OPENSSL=1.0.2e
+VER_OPENSSL=1.0.2g
 
 NGINX_DEVEL_KIT=ngx_devel_kit-${VER_NGINX_DEVEL_KIT}
 LUA_NGINX_MODULE=lua-nginx-module-${VER_LUA_NGINX_MODULE}
@@ -91,7 +91,7 @@ cd nginx-${VER_NGINX}
     --add-module=../ngx_devel_kit-0.2.19 \
     --add-module=../lua-nginx-module-0.10.0 \
     --with-http_ssl_module \
-    --with-openssl=../openssl-1.0.2e \
+    --with-openssl=../openssl-${VER_OPENSSL} \
     --with-pcre=../pcre-8.38  \
     --with-ld-opt="-Wl,-rpath,/usr/local/lib" \
     --prefix=/home/nginx \

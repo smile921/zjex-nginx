@@ -4,7 +4,7 @@ VER_NGINX=1.7.12
 VER_LUAJIT=2.0.4
 VER_PCRE=8.38
 VER_READLINE=6.3
-VER_OPENSSL=1.0.2e
+VER_OPENSSL=1.0.2g
 VER_OPENRESTY=v1.9.7.2
 
 NGINX_DEVEL_KIT=ngx_devel_kit-${VER_NGINX_DEVEL_KIT}
@@ -90,7 +90,7 @@ cd ..
 cd ngx_openresty-${VER_OPENRESTY}
 
  ./configure \
-    --with-openssl=../openssl-1.0.2e \
+    --with-openssl=../openssl-${VER_OPENSSL} \
     --with-pcre=../pcre-8.38  \
     --with-ld-opt="-Wl,-rpath,/usr/local/lib" \
     --prefix=/home/nginx-openresty \
