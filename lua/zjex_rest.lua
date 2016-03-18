@@ -52,7 +52,7 @@
      local base = string.sub(request_uri,1,endPos-1);
   end
   local path ="/gateway_api/api";
-  path = string.gsub(base,"/zjex_rest",path,1);
+  path = string.gsub(base,"/zjex_rest",path,40);--只替换前40个字符串中的字符串
   local response = nil;
   if "GET" == request_method then
     -- TODO 把get请求的参数拼接到path后面，拼接token参数，参数需要编码
