@@ -46,7 +46,11 @@
   local request_uri = ngx.var.request_uri;
   request_uri = ngx.unescape_uri(request_uri)
   local endPos = stringy.find(request_uri,"?");
-  local base = string.sub(request_uri,1,endPos-1);
+  if not endPos then
+     local base = request_uri
+   else
+     local base = string.sub(request_uri,1,endPos-1);
+  end
   local path ="/gateway_api/api";
   path = string.gsub(base,"/zjex_rest",path,1);
   local response = nil;
