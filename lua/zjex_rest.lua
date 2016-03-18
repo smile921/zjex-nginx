@@ -46,10 +46,9 @@
   local request_uri = ngx.var.request_uri;
   request_uri = ngx.unescape_uri(request_uri)
   local endPos = stringy.find(request_uri,"?");
-  if not endPos then
-     local base = request_uri
-   else
-     local base = string.sub(request_uri,1,endPos-1);
+  local base = request_uri
+  if  endPos then     
+       base = string.sub(request_uri,1,endPos-1);
   end
   local path ="/gateway_api/api";
   path = string.gsub(base,"/zjex_rest",path,40);--只替换前40个字符串中的字符串
