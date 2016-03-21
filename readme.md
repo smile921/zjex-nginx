@@ -5,7 +5,7 @@
 1.  lubyk/yaml
 2.  brentp/lua-stringy
 3.  Tieske/uuid
-
+4.  ittner/lua-iconv
 
 
 
