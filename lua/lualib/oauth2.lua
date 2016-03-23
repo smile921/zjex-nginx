@@ -91,6 +91,8 @@ local function get_token_by_type(conf,gtant_type)
    --    现在参数已经准备好了，请求获取token
    --  /gateway_token  /oauth/token
    local auth2_nginx_url = "/gateway_token" .. suffix;
+   ngx.req.set_header("Content-Type", "application/json;charset=utf8");
+   ngx.req.set_header("Accept", "application/json");
    local response = ngx.location.capture(auth2_nginx_url);
    ngx.log(ngx.DEBUG,auth2_nginx_url)
    return  parseTokenResponse(response);
