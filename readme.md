@@ -19,7 +19,7 @@ local yaml_string = yaml.dump(some_table)
 	 local uuid = require("uuid")
 	 print("here's a new uuid: ",uuid())
 
-	 local socket = require("socket")  
+	 local socket = require("socket")   
 	 -- gettime() has higher precision than os.time()
 	 local uuid = require("uuid")
 	 -- see also example at uuid.seed()
